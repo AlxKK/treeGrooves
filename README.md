@@ -44,18 +44,18 @@ We have now modeled two specific types of fruit tree.  Our orange and apple tree
 We can create a `FruitTree` class with generalized behaviors.  Our `OrangeTree` and `AppleTree` classes can inherit behaviors from this general class and implement their own specifics.  For example, both orange trees and apple trees have a height.  With each passing season, the trees grow by some amount until they reach a maximum height.  This is the general behavior that can be represented in a general fruit tree model.  That general behavior would be inherited by each of the specific types of fruit tree with each specific type defining how much it grows each year and its own maximum height.
 
 
-```ruby
+```javascript
 class FruitTree
-  # define the class
-end
+  // define the class
+
 
 class OrangeTree < FruitTree
-  # define the class
-end
+  // define the class
+
 
 class AppleTree < FruitTree
-  # define the class
-end
+  // define the class
+
 ```
 *Figure 1*. Defining `OrangeTree` and `AppleTree` classes which inherit from a `FruitTree` superclass or parent class.
 
