@@ -42,11 +42,11 @@ class FruitTree {
 
 }
 
-class OrangeTree extends FruitTree{
+class OrangeTree extends FruitTree {
 
 }
 
-class AppleTree extends FruitTree{
+class AppleTree extends FruitTree {
 
 }
 
