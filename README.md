@@ -1,42 +1,45 @@
-## Модель рощи из разных деревьев
+## Model of a grove from different trees
 
-Ты смоделировал(а) апельсиновое дерево для нашего клиента, фермера Федора. Кажется это было [тут][задача об апельсиновом дереве].
-*Если ты еще не сделал(а) это задание, **сделай его прежде**, чем приступать к моделированию рощи!*
+You modeled an orange tree for our client, Farmer Fedor. It seems it was [here] [orange tree problem].
+* If you haven't done this task yet, ** do it before ** before you start modeling the grove! *
 
-Федор был доволен твоей работой и поэтому привлек тебя ещё к одному проекту. Его апельсиновая ферма рассматривает возможность приобретения соседней древесной рощи, которая включает в себя разные виды деревьев помимо апельсиновых.
+Fedor was pleased with your work and therefore asked you to hop on another project. His orange farm is considering to acquire a nearby tree grove which includes a variety of trees besides orange trees.
 
-Тебе необходимо построить простую модель рощи из разных деревьев. Начни с апельсинового дерева и используй его как образец для моделирования яблони. Когда у тебя будут два класса деревьев и соответствующие классы фруктов, займись рефакторингом кода. Если ты не знаешь что такое рефакторинг - погугли. После того, как ты порефакторил свой код, добавь грушевые деревья. Наконец, ты можешь смоделировать целую рощу.
+You need to build a simple model of a grove from different trees. Start with an orange tree and use it as a reference for modeling an apple tree. Once you have two tree classes and corresponding fruit classes, refactor the code. If you don't know what refactoring is, google it. After refactoring your code, add pear trees. Finally, you can model an entire grove.
 
-## Наследование
-В этой задаче ты будешь использовать *наследование*, чтобы исключить повторение, которое создают классы `OrangeTree` и `AppleTree` и другие. Создай общий класс `FruitTree`, из которого ты сможешь создать более конкретные классы деревьев: апельсиновые, яблони и позднее - грушевые. Твоя общая модель фруктовых деревьев обеспечит стандартное поведение  деревьев: они растут, зреют, умирают и т.д. Апельсиновые, яблочные и грушевые деревья будут обладать одними и теми же базовыми характеристиками, но каждое дерево будет отличаться по своей реализации: одно дерево производит апельсины, другое - яблоки; одно дерево умирает в возрасте 100 лет, другое - в 45; и так далее (см. Таблицу 1).
+## Inheritance
+In this task, you will use *inheritance* to eliminate the repetition that the `OrangeTree` and `AppleTree` classes and others create. Create a generic `FruitTree` class from which you can create more specific tree classes: orange, apple and later pear. Your general model of fruit trees will provide the standard behavior for all the trees: they grow, mature, die, etc. Orange, apple and pear trees will have the same basic characteristics but each tree will be different in its implementation: one tree produces oranges, the other - apples; one tree dies at the age of 100, the other at 45; and so on (see Table 1).
 
 
-|                          | Апельсиновые деревья | Яблочные деревья | Грушевые деревья |
+|                          | Orange trees         | Apple trees      | Pear trees       |
 | ------------------------ | -------------------: | ---------------: | ---------------: |
-| Максимальная высота      |                   25 |               26 |               20 |
-| Темп роста               |                  2.5 |                2 |              2.5 |
-| Ежегодный урожай фруктов |            100 - 300 |        400 - 600 |        175 - 225 |
-| Возраст зрелости         |                    6 |                5 |                5 |
-| Возраст смерти           |                  100 |               45 |               40 |
-| Диаметр                  |                2-3.2 |            1-2.5 |          2.4-4.1 |
-| Тип фруктов              |              oranges |           apples |            pears |
+| Maximum height           |                   25 |               26 |               20 |
+| Growth rate              |                  2.5 |                2 |              2.5 |
+| Annual harvest of fruits |            100 - 300 |        400 - 600 |        175 - 225 |
+| Maturity age             |                    6 |                5 |                5 |
+| Age of death             |                  100 |               45 |               40 |
+| Diameter                 |                2-3.2 |            1-2.5 |          2.4-4.1 |
+| Fruit type               |              oranges |           apples |            pears |
 
-*Таблица 1*.  Данные для апельсиновых, яблочных и грушевых деревьев
+*Таблица 1*.  Data for orange, apple and pear trees
 
-### Pre-release. Скопируй модель апельсинового дерева
-Прежде чем начать, скопируй код из задачи об апельсиновом дереве. Возьми код для апельсинового дерева и апельсинов. Запусти тесты и убедись, что они работают должным образом.
+### Pre-release. Copy the orange tree model
+Before you start, copy the code from the orange tree problem. Take the code for the orange tree and oranges. Run your tests and make sure they work as expected.
 
-### Release 0. Яблоки и яблочные деревья
-У тебя есть класс `OrangeTree` который имеет такие методы, как `.isMature`,`.isDead` и т.д.Создай класс `AppleTree`, который в точности копирует этот интерфейс. Твоя первая яблоня не будет отличаться от апельсинового дерева.
+### Release 0. Apples and apple trees
 
-Однако несмотря на то, что апельсиновые деревья и яблочные будут вести себя одинаково, они будут иметь разные жизненные циклы. Они будут производить фрукты в разном возрасте, расти с разной скоростью, умирать в разное время и т.д. Детали для каждого типа дерева можно найти в Таблице 1.
+You have an `OrangeTree` class that has methods like` .isMature`, `.isDead`, etc. Create an` AppleTree` class that copies this interface exactly. Your first apple tree will be no different from an orange tree.
 
-Начни с написания тестов для класса `AppleTree`. Используй тесты для апельсинового дерева как образец, изменяя их для деталей яблочного. Кстати, тесты для разных деревьев рекомендуется писать в разных файлах. Затем внедри сам класс. Главное не перепутай, яблочное дерево не должно производить апельсины, это против природы.
+However, even though orange trees and apple trees will behave the same, they will have different life cycles. They will produce fruit at different ages, grow at different rates, die at different times, etc. Details for each type of tree can be found in Table 1.
 
-### Release 1. От конкретных типов до общего типа
-Теперь ты смоделировал(а) два конкретных типа фруктовых деревьев. Твои апельсиновые и яблочные деревья ведут себя очень похожим образом. Основываясь на сходстве поведения между двумя типами деревьев, ты можешь создать более обобщенный случай: фруктовое дерево.
+Start by writing tests for the `AppleTree` class. Use the orange tree tests as a reference, modifying them for the apple tree details. By the way, it is recommended to write tests for different trees in different files. Then implement the class itself. The main thing is not to confuse it, an apple tree should not produce oranges, this is against nature.
 
-Создай класс `FruitTree` с обобщенным поведением. Твои классы `OrangeTree` и `AppleTree` могут наследовать поведение этого общего класса и реализовывать свои собственные особенности. Например, как апельсиновые деревья, так и яблочные растут вверх. С каждым сезоном деревья растут на некоторую величину, пока не достигнут своей максимальной высоты. Высота у всех типов разная, однако поведение одинаковое.
+### Release 1. From specific types to general types
+
+You have now modeled two specific types of fruit trees. Your orange and apple trees behave in a very similar way. Based on the similarities in behavior between the two types of trees, you can create a more generalized case: the fruit tree.
+
+Create a `FruitTree` class with generic behavior. Your `OrangeTree` and` AppleTree` classes can inherit the behavior of this generic class and implement their own specifics. For example, both orange trees and apple trees grow upward. Each season the trees grow by a certain amount until they reach their maximum height. The height is different for all types, but the behavior is the same.
+
 ```javascript
 class FruitTree {
 
@@ -52,48 +55,51 @@ class AppleTree extends FruitTree {
 
 ```
 
-*Рисунок 1*. Определение классов `OrangeTree` и `AppleTree`, которые наследуются от суперкласса `FruitTree` или родительского класса.
+*Figure 1*. The definition of the `OrangeTree` and` AppleTree` classes that inherit from the `FruitTree` superclass or parent class.
 
-Определи класс `FruitTree` и измени классы `OrangeTree` и `AppleTree` чтобы они наследовались от `FruitTree` (см. Рисунок 1). Поэтапно перемещай общие черты от конкретных типов деревьев к `FruitTree`.
+Define the `FruitTree` class and change the` OrangeTree` and `AppleTree` classes to inherit from` FruitTree` (see Figure 1). Move common traits step by step from specific tree types to `FruitTree`.
 
-По мере того, как ты меняешь свой код, тестирование твоего приложения должно продолжаться: возможно, тебе потребуется добавить небольшие изменения в свои тесты. Если твои тесты продолжают проходить после рефакторинга, то ты знаешь, что твой код в порядке. Если нет - ты быстро найдешь свои ошибки.
+As you change your code, testing your application should continue: you may need to add small changes to your tests. If your tests keep passing after refactoring, then you know that your code is fine. If not, you will quickly find your mistakes.
 
-### Release 2. Груши и грушевые деревья
-Теперь, когда у тебя есть обобщенная модель фруктового дерева, из которой ты можешь получить определенные типы деревьев, воспользуйся этим, создав дополнительный тип дерева: `PearTree`.
+### Release 2. Pear and pear tress
 
-Да, тебе также нужно написать тесты для этого типа деревьев.
+Now that you have a generic fruit tree model from which you can derive certain types of trees, take advantage of this by creating an additional tree type: `PearTree`.
 
-### Release 3. Модель рощи
+Yes, you also need to write tests for this type of tree.
 
-|                          | Возраст 0 лет | Возраст 5 лет | Возраст 20 лет | Возраст 37 лет | Возраст 50 лет | Итого |
+### Release 3. Model of the grove 
+
+|                          | Age 0 years | Age 5 years | Age 20 years | Age 37 years | Age 50 years | Conclusion |
 | :----------------------- | ------------: | ------------: | -------------: | -------------: | -------------: | ----: |
-| **Апельсиновые деревья** |             0 |            20 |             20 |             10 |             20 |    70 |
-| **Яблочные деревья**     |            10 |            10 |             20 |             20 |              5 |    65 |
-| **Грушевые деревья**     |            10 |             0 |             10 |             20 |             10 |    50 |
+| **Orange trees** |             0 |            20 |             20 |             10 |             20 |    70 |
+| **Apple trees**     |            10 |            10 |             20 |             20 |              5 |    65 |
+| **Pear tress**     |            10 |             0 |             10 |             20 |             10 |    50 |
 
-*Таблица 2*. Количество деревьев в роще, разделенных по типу и возрасту
-
-Теперь, когда у тебя есть модель для каждого типа дерева в роще, давай построим модель рощи. Данные для деревьев рощи приведены в Таблице 2. Ты можешь увидеть, сколько деревьев в роще, их типы и их возраст. Рассмотрим на примере апельсиновых деревьев - в роще в общей сложности 70 апельсиновых деревьев, 20 из них - пятилетние, другим 20 – по 20 лет, ещё 10 апельсиновым деревьям - 37 лет, оставшимся 20 – по 50 лет.
-
-Определи класс `TreeGrove`, который будет отвечать за все деревья в роще. Вот список некоторых начальных действий для класса:
-
-1. Рощу можно инициализировать массивом деревьев.
-2. Роща может возвращать разные подмножества своих деревьев: все деревья, только деревья одного типа, только зрелые деревья и т.д.
-3. Когда древесная роща проходит вегетационный период, каждое из ее деревьев проходит сезон созревания `.passGrowingSeason()`.
-
-*Подсказка:* Ты можешь отредактировать свои деревья. Например, ты можешь инициализировать их с заданными возрастом и высотой.
-
-### Release 4. Модель ожидаемого производства
-Пришло время использовать твои модели. Федор хочет, чтобы ты составил(а) отчет о количестве ожидаемой продукции рощи в течение следующих 10 сезонов. По каждому сезону в твоем отчете должно указываться: 
-
-1. Сколько апельсинов, яблок и груш твоя модель будет производить каждый сезон.
-2. Средний размер каждого вида фруктов.
-3. Для каждого типа дерева необходимо указать, сколько незрелых, зрелых и мертвых деревьев в роще, а также их общее количество (см. [пример отчета]).
+*Figure 2*. Number of trees in the grove divided by type and age
 
 
-## Выводы
-В этой задаче ты начал(а) изучать наследование. Это способ совместного использования поведения между подобными типами объектов, который может упростить твой код. Наследование подходит только тогда, когда подкласс (например, `OrangeTree`) является определенным типом суперкласса (например, `FruitTree`).
+Now that you have a model for each type of tree in the grove, let's build a model of the grove. The data for the trees in the grove are given in Table 2. You can see how many trees there are in the grove, their types and their age. Consider the example of orange trees - there are a total of 70 orange trees in the grove, 20 of them are five years old, the other 20 are 20 years old, another 10 orange trees are 37 years old, and the remaining 20 are 50 years old.
+
+Define a `TreeGrove` class that will be responsible for all the trees in the grove. Here is a list of some of the initial functionality for the class:
+
+1. A grove can be initialized with an array of trees.
+2. A grove can return different subsets of its trees: all trees, only trees of the same type, only mature trees, etc.
+3. When a tree grove passes the growing season, each of its trees passes through the `.passGrowingSeason ()` ripening season.
+
+*Hint:* You can edit your trees. For example, you can initialize them with a given age and height.
+
+### Release 4. Model of the expected production
+It's time to use your models. Fedor wants you to report on the expected production of the grove over the next 10 seasons. For each season, your report should include:
+
+1. How many oranges, apples and pears your model will produce each season.
+2. Average size of each type of fruit.
+3. For each type of tree, it is necessary to indicate how many immature, mature and dead trees are in the grove, as well as their total number (see [sample report]).
 
 
-[пример отчета]: readme-assets/example-report.md
-[задача об апельсиновом дереве]: ../../../orange-tree-1-just-oranges-challenge
+## Conclusion
+
+In this task, you started learning about inheritance. It is a way to share behavior between similar types of objects, which can simplify your code. Inheritance is only appropriate when the subclass (for example, `OrangeTree`) is a specific type of the superclass (for example,` FruitTree`).
+
+
+[example of the report]: readme-assets/example-report.md
+[orange tree challenge]: ../../../orange-tree-1-just-oranges-challenge
