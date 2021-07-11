@@ -1,6 +1,6 @@
 ## Model of a grove from different trees
 
-You modeled an orange tree for our client, Farmer Fedor. It seems it was [here] [orange tree problem].
+You modeled an orange tree for our client, Farmer Fedor. It seems it was [here][orange tree problem].
 * If you haven't done this task yet, ** do it before ** before you start modeling the grove! *
 
 Fedor was pleased with your work and therefore asked you to hop on another project. His orange farm is considering to acquire a nearby tree grove which includes a variety of trees besides orange trees.
@@ -93,7 +93,7 @@ It's time to use your models. Fedor wants you to report on the expected producti
 
 1. How many oranges, apples and pears your model will produce each season.
 2. Average size of each type of fruit.
-3. For each type of tree, it is necessary to indicate how many immature, mature and dead trees are in the grove, as well as their total number (see [sample report]).
+3. For each type of tree, it is necessary to indicate how many immature, mature and dead trees are in the grove, as well as their total number (see [example of the report]).
 
 
 ## Conclusion
@@ -102,4 +102,4 @@ In this task, you started learning about inheritance. It is a way to share behav
 
 
 [example of the report]: readme-assets/example-report.md
-[orange tree challenge]: ../../../orange-tree-1-just-oranges-challenge
+[orange tree problem]: https://github.com/Elbrus-Bootcamp/core-js-oop-tdd-orange-tree/tree/master-eng
